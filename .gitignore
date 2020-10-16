@@ -1,2 +1,4 @@
 node_modules
-bin
+
+# System Files
+.DS_Store
