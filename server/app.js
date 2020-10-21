@@ -6,9 +6,14 @@ import cors from 'cors';
 import routes from './routes';
 
 // connect Mongoose to your DB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/redditdb', () => {
-    console.log("connected to mongodb...");
-});
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/redditdb', 
+    {useNewUrlParser: true, useUnifiedTopology: true}, 
+    () => {
+        console.log("connected to mongodb...");
+    }, 
+    (err) => {
+        console.log("Error message: ", err);
+    });
 
 const app = express();
 
